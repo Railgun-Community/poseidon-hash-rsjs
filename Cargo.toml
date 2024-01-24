@@ -1,0 +1,21 @@
+[package]
+name = "poseidon-hash-rsjs"
+version = "0.1.0"
+authors = ["RAILGUN Contributors"]
+edition = "2018"
+exclude = ["index.node"]
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+node-bindgen = { version = "6.0" }
+rs-poseidon = { git = "https://github.com/codex-storage/rs-poseidon.git" }
+ruint = { version = "1.7.0", features = ["serde", "num-bigint", "ark-ff"] }
+hex = "0.4"
+
+[build-dependencies]
+node-bindgen = { version = "6.0", default-features = false, features = ["build"] }
+
+[target."cfg(windows)".build-dependencies.http_req]
+version = "0.7.2"

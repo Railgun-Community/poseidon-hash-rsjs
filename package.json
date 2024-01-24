@@ -1,0 +1,37 @@
+{
+  "name": "@railgun-community/poseidon-hash-rsjs",
+  "version": "0.2.4",
+  "description": "Node.js addon for Poseidon hash written in Rust",
+  "author": "RAILGUN Contributors",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Railgun-Community/poseidon-hash-rsjs.git"
+  },
+  "homepage": "https://github.com/Railgun-Community/poseidon-hash-rsjs#readme",
+  "bugs": {
+    "url": "https://github.com/Railgun-Community/poseidon-hash-rsjs/issues"
+  },
+  "main": "index.js",
+  "files": [
+    "tools/*.js",
+    "src/*",
+    "prebuilds/*",
+    "build.rs",
+    "index.js",
+    "Cargo.lock",
+    "Cargo.toml"
+  ],
+  "devDependencies": {
+    "circomlibjs": "hsg88/circomlibjs#ffjavascrip.0.1.0",
+    "rimraf": "~5.0.1"
+  },
+  "scripts": {
+    "install": "npm run build-release",
+    "postinstall": "node tools/postinstall.js",
+    "build-debug": "node tools/build-debug.js",
+    "build-release": "node tools/build-release.js",
+    "test": "npm run build-debug && node --test",
+    "prepublishOnly": "node tools/check-prebuilds.js"
+  }
+}
